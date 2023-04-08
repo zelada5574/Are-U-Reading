@@ -21,8 +21,11 @@ const readMeDoc = ({
     ## Description
 
     ${motivation}
+
     ${purpose}
+
     ${solve}
+
     ${learn}
 
     ## Table of Contents
@@ -60,74 +63,73 @@ inquirer
   .prompt([
     {
       type: "input",
-      name: "project",
-      message: "What is your name?",
+      name: "projectTitle",
+      message: "What is your project title? ",
     },
     {
-      type: "checkbox",
-      message: "What languages do you know?",
-      name: "stack",
-      choices: ["HTML", "CSS", "JavaScript", "MySQL"],
+        type: "input",
+      message: "What was your motivation for this project?",
+      name: "motivation",
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "input",
+      message: "Why did you build this project?",
+      name: "purpose",
+      
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "input",
+      message: "What problem does this project solve?",
+      name: "solve",
+      
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "input",
+      message: "What did you learn while creating this project?",
+      name: "learn",
+      
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "input",
+      message: "What steps are required to install your project? Provide a step by step description of how to get the development enviornment running.",
+      name: "installation",
+
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "input",
+      message: "Please provide instructions and examples for project use?",
+      name: "usage",
+      
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "input",
+      message: "Please list any colaborators of this project or type in `none`",
+      name: "credits",
+      
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "list",
+      message: "Which open source license is needed for your project?",
+      name: "license",
+      choices: ["Unlicense", "MIT", "GP", "Apache", "None"],
+      
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+        type: "input",
+      message: "What is your Github user name?",
+      name: "gitname",
+      
     },
     {
-      type: "list",
-      message: "What is your preferred method of communication?",
-      name: "contact",
-      choices: ["email", "phone", "telekinesis"],
+      type: "input",
+      message: "What is your email?",
+      name: "email",
+    
     },
   ])
-  .then((data) => {
-    const filename = `${data.name.toLowerCase().split(" ").join("")}.json`;
-
-    fs.writeFile(filename, JSON.stringify(data, null, "\t"), (err) =>
+  .then((answers) => {
+    console.log(answers)
+    fs.writeFile(`${projectTitle}.md`, readMeDoc(answers), (err) =>
       err ? console.log(err) : console.log("Success!")
     );
   });
