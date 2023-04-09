@@ -38,4 +38,6 @@
     You can reach me at my email: jarram999@gmail.com
 
     All code source should be found in the index.js file within the repo.
+
+    https://github.com/zelada5574/Are-U-Reading
     
