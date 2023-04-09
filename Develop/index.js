@@ -14,9 +14,10 @@ const readMeDoc = ({
   gitname,
   email,
 }) => {
+
   return `
 
-    # ${projectTitle}
+    # ${projectTitle} 
 
     ## Description
 
@@ -35,21 +36,21 @@ const readMeDoc = ({
     - [Credits](#credits)
     - [License](#license)
 
-    ## Installation
+    ## Installation 
 
     ${installation}
 
-    ## Usage
+    ## Usage 
 
-    ${usage}
+    ${usage} 
 
     ## Credit
 
-    ${credits}
+    ${credits} 
 
     ## License
-
-    This project uses the ${license} license. Please refer to [https://choosealicense.com/](https://choosealicense.com/).
+    
+    This project uses the following license: ${license}. Please refer to [https://choosealicense.com/](https://choosealicense.com/).
 
     ## Questions
 
@@ -131,7 +132,7 @@ inquirer
   ])
   .then((answers) => {
     console.log(answers)
-    const filename = `${answers.projectTitle.toLowerCase().split(' ')}.json`
+    const filename = `${answers.projectTitle.toLowerCase()}.md`
 
     fs.writeFile(filename, readMeDoc(answers), (err) =>
       err ? console.log(err) : console.log("Success!")
