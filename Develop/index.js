@@ -56,6 +56,8 @@ const readMeDoc = ({
     You can see my GitHub Profile at https://github.com/${gitname}.
 
     You can reach me at my email: ${email}
+
+    All code source should be found in the index.js file within the repo.
     `;
 };
 
