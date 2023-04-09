@@ -30,10 +30,10 @@ const readMeDoc = ({
 
     ## Table of Contents
     
-    -[Installation](#installation)
-    -[Usage](#usage)
-    -[Credits](#credits)
-    -[License](#license)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Credits](#credits)
+    - [License](#license)
 
     ## Installation
 
@@ -129,7 +129,9 @@ inquirer
   ])
   .then((answers) => {
     console.log(answers)
-    fs.writeFile(`${projectTitle}.md`, readMeDoc(answers), (err) =>
+    const filename = `${answers.projectTitle.toLowerCase().split(' ')}.json`
+
+    fs.writeFile(filename, readMeDoc(answers), (err) =>
       err ? console.log(err) : console.log("Success!")
     );
   });
